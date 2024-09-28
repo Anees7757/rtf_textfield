@@ -205,8 +205,9 @@ class _RichTextEditorController extends TextEditingController {
 
   int? indexOflListChar;
 
-  void toggleListMode() {
-    indexOflListChar = indexOflListChar == null ? (deltas.length - 1) : null;
+  void toggleListMode(bool val) {
+    indexOflListChar =
+        indexOflListChar == null && val ? (deltas.length - 1) : null;
     _metadataToggled = true;
     notifyListeners();
   }
@@ -271,13 +272,11 @@ class _RichTextEditorController extends TextEditingController {
   }
 
   /// Toggles the [RTFTextMetadata.fontWeight] between [FontWeight.normal] and [FontWeight.w700].
-  void toggleBold() {
+  void toggleBold(bool val) {
     final RTFTextMetadata tempMetadata =
         metadata ?? RTFTextFieldController.defaultMetadata;
     final RTFTextMetadata changedMetadata = tempMetadata.copyWith(
-      fontWeight: tempMetadata.fontWeight == FontWeight.normal
-          ? FontWeight.w700
-          : FontWeight.normal,
+      fontWeight: val ? FontWeight.w700 : FontWeight.normal,
     );
 
     changeStyleOnSelectionChange(
@@ -289,14 +288,12 @@ class _RichTextEditorController extends TextEditingController {
   }
 
   /// Toggles the [RTFTextMetadata.fontStyle] between [FontStyle.normal] and [FontStyle.italic].
-  void toggleItalic() {
+  void toggleItalic(bool val) {
     final RTFTextMetadata tempMetadata =
         metadata ?? RTFTextFieldController.defaultMetadata;
 
     final RTFTextMetadata changedMetadata = tempMetadata.copyWith(
-      fontStyle: tempMetadata.fontStyle == FontStyle.italic
-          ? FontStyle.normal
-          : FontStyle.italic,
+      fontStyle: val ? FontStyle.italic : FontStyle.normal,
     );
     changeStyleOnSelectionChange(
       changedMetadata: changedMetadata,
@@ -306,15 +303,14 @@ class _RichTextEditorController extends TextEditingController {
     );
   }
 
-  /// Toggles the [RTFTextMetadata.decoration] between [RTFTextDecorationEnum.none] and [RTFTextDecorationEnum.underline].
-  void toggleUnderline() {
+  /// Toggles the [RTFTextMetadata.decoration] between [TextDecorationEnum.none] and [TextDecorationEnum.underline].
+  void toggleUnderline(bool val) {
     final RTFTextMetadata tempMetadata =
         metadata ?? RTFTextFieldController.defaultMetadata;
 
     final RTFTextMetadata changedMetadata = tempMetadata.copyWith(
-      decoration: tempMetadata.decoration == RTFTextDecorationEnum.underline
-          ? RTFTextDecorationEnum.none
-          : RTFTextDecorationEnum.underline,
+      decoration:
+          val ? RTFTextDecorationEnum.underline : RTFTextDecorationEnum.none,
     );
 
     changeStyleOnSelectionChange(
