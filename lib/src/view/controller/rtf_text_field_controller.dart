@@ -23,7 +23,7 @@ class RTFTextFieldController extends _RichTextEditorController {
   static const RTFTextMetadata defaultMetadata = RTFTextMetadata(
     alignment: TextAlign.start,
     decoration: RTFTextDecorationEnum.none,
-    fontSize: 14,
+    fontSize: 18.5,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.w400,
     fontFeatures: null,

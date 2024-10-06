@@ -20,7 +20,7 @@ class RTFTextMetadata {
     this.color = Colors.black,
     this.fontWeight = FontWeight.w400,
     this.fontStyle = FontStyle.normal,
-    this.fontSize = 14,
+    this.fontSize = 18.5,
     this.alignment = TextAlign.start,
     this.decoration = RTFTextDecorationEnum.none,
     this.fontFeatures,
@@ -32,7 +32,7 @@ class RTFTextMetadata {
   })  : color = style.color ?? Colors.black,
         fontWeight = style.fontWeight ?? FontWeight.w400,
         fontStyle = style.fontStyle ?? FontStyle.normal,
-        fontSize = style.fontSize ?? 14,
+        fontSize = style.fontSize ?? 18.5,
         decoration = style.decoration == null
             ? RTFTextDecorationEnum.none
             : RTFTextDecorationEnum.fromDecoration(style.decoration!),
